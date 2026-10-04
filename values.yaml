@@ -1,0 +1,42 @@
+# Local-only values for a throwaway kind cluster. All secrets here are non-sensitive dev values.
+langfuse:
+  salt:
+    value: local-dev-salt
+  encryptionKey:
+    value: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+  nextauth:
+    url: http://localhost:3000
+    secret:
+      value: local-dev-nextauth-secret
+  web:
+    service:
+      type: NodePort
+      nodePort: 30000
+  ingress:
+    enabled: false
+  # Headless init: org/project/user/API keys exist on first boot, no signup needed.
+  additionalEnv:
+    - { name: LANGFUSE_INIT_ORG_ID, value: local }
+    - { name: LANGFUSE_INIT_ORG_NAME, value: local }
+    - { name: LANGFUSE_INIT_PROJECT_ID, value: demo }
+    - { name: LANGFUSE_INIT_PROJECT_NAME, value: demo }
+    - { name: LANGFUSE_INIT_PROJECT_PUBLIC_KEY, value: pk-lf-local }
+    - { name: LANGFUSE_INIT_PROJECT_SECRET_KEY, value: sk-lf-local }
+    - { name: LANGFUSE_INIT_USER_EMAIL, value: admin@local.dev }
+    - { name: LANGFUSE_INIT_USER_NAME, value: admin }
+    - { name: LANGFUSE_INIT_USER_PASSWORD, value: localpassword }
+
+postgresql:
+  auth:
+    password: local-postgres
+clickhouse:
+  auth:
+    password: local-clickhouse
+  keeper:
+    replicas: 1
+redis:
+  auth:
+    password: local-redis
+s3:
+  auth:
+    rootPassword: local-s3-password

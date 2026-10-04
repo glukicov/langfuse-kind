@@ -1,0 +1,10 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: langfuse
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      # langfuse-web NodePort -> http://localhost:3000
+      - containerPort: 30000
+        hostPort: 3000
+        protocol: TCP

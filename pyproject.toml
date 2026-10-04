@@ -1,0 +1,12 @@
+[project]
+name = "lf-kind"
+version = "0.1.0"
+description = "Demo app sending OpenAI traces to a local self-hosted Langfuse"
+requires-python = ">=3.12"
+dependencies = ["langfuse>=3", "openai>=1", "python-dotenv>=1"]
+
+[dependency-groups]
+dev = ["ruff", "ty", "pytest"]
+
+[tool.ruff]
+line-length = 120
